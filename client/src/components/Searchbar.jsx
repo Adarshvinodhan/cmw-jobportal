@@ -7,17 +7,16 @@ const SearchBar = ({ onSearch }) => {
   const [location, setLocation] = useState("");
   const [jobType, setJobType] = useState("");
 
-
   useEffect(() => {
     const delaySearch = setTimeout(() => {
       onSearch({ searchTitle, location, jobType });
-    }, 300);  //debounce
+    }, 300);
 
     return () => clearTimeout(delaySearch);
   }, [searchTitle, location, jobType, onSearch]);
 
   return (
-    <div className="flex flex-wrap justify-around items-center gap-4 py px-16 text-[#686868] text-sm ">
+    <div className="flex flex-col md:flex-row flex-wrap justify-around items-stretch md:items-center gap-4 py-4 px-6 md:px-16 text-[#686868] text-sm">
       {/* Job Title Search */}
       <div className="flex items-center gap-2 flex-grow min-w-[200px]">
         <Search className="h-5 w-5" />
@@ -31,7 +30,7 @@ const SearchBar = ({ onSearch }) => {
       </div>
 
       {/* Location Filter */}
-      <div className="flex items-center gap-2 flex-grow min-w-[180px] border-l-2 border-l-[#EAEAEA] pl-4">
+      <div className="flex items-center gap-2 flex-grow min-w-[180px] border-t-2 md:border-t-0 md:border-l-2 border-[#EAEAEA] pt-4 md:pt-0 md:pl-4">
         <MapPin className="h-5 w-5" />
         <select
           value={location}
@@ -46,7 +45,7 @@ const SearchBar = ({ onSearch }) => {
       </div>
 
       {/* Job Type Filter */}
-      <div className="flex items-center gap-2 flex-grow min-w-[150px] border-l-2 border-l-[#EAEAEA] pl-4">
+      <div className="flex items-center gap-2 flex-grow min-w-[150px] border-t-2 md:border-t-0 md:border-l-2 border-[#EAEAEA] pt-4 md:pt-0 md:pl-4">
         <Briefcase className="h-5 w-5" />
         <select
           value={jobType}
@@ -60,8 +59,10 @@ const SearchBar = ({ onSearch }) => {
         </select>
       </div>
 
-      {/* (Optional) Salary Slider */}
-      <SalarySlider />
+      {/* Salary Slider */}
+      <div className="w-full md:w-auto pt-4 md:pt-0">
+        <SalarySlider />
+      </div>
     </div>
   );
 };
