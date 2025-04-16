@@ -17,7 +17,7 @@ const SearchBar = ({ onSearch }) => {
   }, [searchTitle, location, jobType, onSearch]);
 
   return (
-    <div className="flex flex-wrap justify-around items-center gap-4 py px-16 text-[#686868] text-sm bg-white shadow">
+    <div className="flex flex-wrap justify-around items-center gap-4 py px-16 text-[#686868] text-sm ">
       {/* Job Title Search */}
       <div className="flex items-center gap-2 flex-grow min-w-[200px]">
         <Search className="h-5 w-5" />
