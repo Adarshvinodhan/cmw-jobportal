@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 
-app.use("/api", jobRouter);
+app.use("/", jobRouter);
 
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
