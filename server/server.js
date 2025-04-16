@@ -8,6 +8,7 @@ import jobRouter from "./routes/jobRoute.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
+const __dirname = path.dirname(__filename);
 
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
