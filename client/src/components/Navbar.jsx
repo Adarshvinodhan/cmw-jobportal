@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full bg-white px-6 py-4 flex items-center justify-between md:justify-around  relative z-50">
+      <nav className="w-full bg-white px-6 py-4 flex items-center justify-between md:justify-around relative z-50">
         {/* Logo */}
         <div className="flex items-center gap-4">
           <img src="/cmwlogo.svg" alt="Logo" className="w-10 h-10 rounded-full" />
@@ -46,9 +46,10 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden bg-white absolute top-[72px] left-0 w-full px-6 py-4 shadow-md space-y-4 text-sm font-semibold text-[#303030] transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden bg-white absolute top-[72px] left-0 w-full px-6 py-4 shadow-md space-y-4 text-sm font-semibold text-[#303030] transform transition-transform duration-300 ease-in-out z-40 ${
           mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0 pointer-events-none"
         }`}
+        style={{ zIndex: 40 }}
       >
         <li className="hover:text-black cursor-pointer">Home</li>
         <li className="hover:text-black cursor-pointer">Find Jobs</li>
