@@ -5,7 +5,7 @@ const JobCard = ({ job }) => {
   const logoUrl = job.logo || `/google.svg`;
 
   return (
-    <div className="w-[300px] h-[360px] p-4 relative  flex flex-col">
+    <div className="w-[300px] h-[360px] p-4 relative  flex flex-col bg-white rounded-md shadow-md">
       {/* Time tag */}
       <div className="absolute top-3 right-3 bg-[#B0D9FF] text-xs font-medium py-1.5 px-2 rounded-md">
         24h Ago

@@ -8,7 +8,7 @@ function App() {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(import.meta.env.VITE_API_URL); 
+
 
   useEffect(() => {
     axios.get("/jobs")

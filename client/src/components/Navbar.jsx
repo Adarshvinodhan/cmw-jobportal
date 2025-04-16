@@ -11,14 +11,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full bg-white px-6 py-4 flex items-center justify-between md:justify-around relative z-50">
+      <nav className="mx-auto mt-4 w-[100%] md:w-[55%] max-w-6xl bg-white rounded-full shadow-md px-5 py-3 flex items-center justify-between md:justify-around z-50 relative">
         {/* Logo */}
         <div className="flex items-center gap-4">
           <img src="/cmwlogo.svg" alt="Logo" className="w-10 h-10 rounded-full" />
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#303030]">
+        <ul className="hidden md:flex items-center gap-6 text-sm font-semibold text-[#303030]">
           <li className="hover:text-black cursor-pointer">Home</li>
           <li className="hover:text-black cursor-pointer">Find Jobs</li>
           <li className="hover:text-black cursor-pointer">Find Talents</li>
@@ -51,11 +51,11 @@ export default function Navbar() {
         }`}
         style={{ zIndex: 40 }}
       >
-        <li className="hover:text-black cursor-pointer">Home</li>
-        <li className="hover:text-black cursor-pointer">Find Jobs</li>
-        <li className="hover:text-black cursor-pointer">Find Talents</li>
-        <li className="hover:text-black cursor-pointer">About us</li>
-        <li className="hover:text-black cursor-pointer">Testimonials</li>
+        <li className="hover:text-black cursor-pointer list-none text-center mt-2">Home</li>
+        <li className="hover:text-black cursor-pointer list-none text-center">Find Jobs</li>
+        <li className="hover:text-black cursor-pointer list-none text-center">Find Talents</li>
+        <li className="hover:text-black cursor-pointer list-none text-center">About us</li>
+        <li className="hover:text-black cursor-pointer list-none text-center">Testimonials</li>
         <button
           className="w-full bg-[#A128FF] text-white px-5 py-2 rounded-full text-sm font-medium shadow-md hover:opacity-90 transition"
           onClick={() => {

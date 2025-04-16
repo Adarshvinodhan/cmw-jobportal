@@ -17,26 +17,36 @@ const SearchBar = ({ onSearch }) => {
   }, [searchTitle, location, jobType, onSearch]);
 
   return (
-    <div className="px-4 md:px-16 py-4 text-[#686868] text-sm">
-      {/* Mobile Filter Button */}
-      <div className="flex justify-end items-center md:hidden mb-4">
+    <div className="px-4 md:px-16 py-2 mt-2 mb-2 text-[#686868] text-sm shadow-md bg-white">
+  
+      {/* Mobile Search Bar + Filter Icon */}
+      <div className="flex md:hidden items-center gap-3 mb-4">
+        <div className="flex items-center gap-2 flex-grow bg-[#F5F5F5] px-3 py-2 rounded-md">
+          <Search className="h-5 w-5" />
+          <input
+            type="text"
+            placeholder="Search by job title, role"
+            value={searchTitle}
+            onChange={(e) => setSearchTitle(e.target.value)}
+            className="w-full outline-none border-none bg-transparent"
+          />
+        </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center gap-1 text-[#686868]"
+          className="p-2 bg-[#F5F5F5] rounded-md"
         >
-          <Filter className="w-5 h-5" />
-          <span>Filters</span>
+          <Filter className="w-5 h-5 text-[#686868]" />
         </button>
       </div>
-
+  
       {/* Filter Options */}
       <div
         className={`${
           showFilters ? "flex" : "hidden"
         } flex-col gap-4 md:flex md:flex-row md:flex-wrap md:justify-around md:items-center`}
       >
-        {/* Job Title Search */}
-        <div className="flex items-center gap-2 flex-grow min-w-[200px]">
+        {/* Job Title Search (Visible on desktop only) */}
+        <div className="hidden md:flex items-center gap-2 flex-grow min-w-[200px]">
           <Search className="h-5 w-5" />
           <input
             type="text"
@@ -46,7 +56,7 @@ const SearchBar = ({ onSearch }) => {
             className="w-full outline-none border-none"
           />
         </div>
-
+  
         {/* Location Filter */}
         <div className="flex items-center gap-2 flex-grow min-w-[180px] md:border-l-2 border-[#EAEAEA] md:pl-4">
           <MapPin className="h-5 w-5" />
@@ -61,7 +71,7 @@ const SearchBar = ({ onSearch }) => {
             <option value="remote">Remote</option>
           </select>
         </div>
-
+  
         {/* Job Type Filter */}
         <div className="flex items-center gap-2 flex-grow min-w-[150px] md:border-l-2 border-[#EAEAEA] md:pl-4">
           <Briefcase className="h-5 w-5" />
@@ -76,7 +86,7 @@ const SearchBar = ({ onSearch }) => {
             <option value="internship">Internship</option>
           </select>
         </div>
-
+  
         {/* Salary Slider */}
         <div className="w-full md:w-auto">
           <SalarySlider />
@@ -84,6 +94,7 @@ const SearchBar = ({ onSearch }) => {
       </div>
     </div>
   );
+  
 };
 
 export default SearchBar;
