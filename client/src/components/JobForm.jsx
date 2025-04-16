@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import api from "../api.js";
 import { ChevronDown, Send } from "lucide-react";
+import { toast } from "react-toastify";
 
-const CreateJobForm = () => {
+const CreateJobForm = ({onClose, setJobs}) => {
   const [formData, setFormData] = useState({
     title: "",
     company: "",
@@ -25,7 +26,9 @@ const CreateJobForm = () => {
     e.preventDefault();
     try {
       await api.post("/job", formData);
-      alert("Job posted successfully!");
+      setJobs(prev => [formData, ...prev])
+      if(onClose) onClose()
+      toast.success("Job created successfully!");
     } catch (err) {
       alert("Failed to post job: " + err.message);
       console.error(err);

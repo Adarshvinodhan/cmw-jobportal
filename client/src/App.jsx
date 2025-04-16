@@ -3,6 +3,9 @@ import axios from './api.js';
 import JobCard from './components/Card.jsx';
 import Navbar from './components/Navbar.jsx';
 import SearchBar from './components/Searchbar.jsx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -42,8 +45,10 @@ function App() {
   };
 
   return (
+    <>
+    <ToastContainer position="top-right" autoClose={3000} />
     <div className="bg-gray-50 h-screen flex flex-col">
-      <Navbar />
+      <Navbar jobs={jobs} setJobs={setJobs}/>
       <SearchBar onSearch={handleSearch} />
 
       <div className="px-16 py-4 flex-grow overflow-auto">
@@ -60,6 +65,7 @@ function App() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

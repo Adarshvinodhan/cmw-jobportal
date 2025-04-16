@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreateJobForm from "./JobForm";
 import { X, Menu } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({jobs, setJobs}) {
   const [showForm, setShowForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -79,7 +79,7 @@ export default function Navbar() {
               <X size={24} />
             </button>
 
-            <CreateJobForm />
+            <CreateJobForm onClose={toggleForm} jobs={jobs} setJobs={setJobs}/>
           </div>
         </div>
       )}
