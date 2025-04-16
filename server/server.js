@@ -3,6 +3,7 @@ import cors from "cors";
 import "dotenv/config.js";
 import connectDB from "./config/dbConfig.js";
 import path from "path";
+import { fileURLToPath } from 'url'; 
 import jobRouter from "./routes/jobRoute.js";
 
 const app = express();
