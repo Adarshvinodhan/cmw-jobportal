@@ -27,7 +27,7 @@ function App() {
       });
   }, []);
 
-  const handleSearch = ({ searchTitle, location, jobType }) => {
+  const handleSearch = ({ searchTitle, location, jobType, salaryRange }) => {
     const filtered = jobs.filter(job => {
       const matchTitle = searchTitle
         ? job.title.toLowerCase().includes(searchTitle.toLowerCase())
@@ -38,8 +38,12 @@ function App() {
       const matchType = jobType
         ? job.type.toLowerCase() === jobType.toLowerCase()
         : true;
+        const matchSalary =
+        salaryRange && job.salary
+          ? job.salary >= salaryRange[0] && job.salary <= salaryRange[1]
+          : true;
 
-      return matchTitle && matchLocation && matchType;
+      return matchTitle && matchLocation && matchType && matchSalary;
     });
 
     setFilteredJobs(filtered);

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Search, MapPin, Briefcase, Filter } from "lucide-react";
-import SalarySlider from "./ui/Slider";
+// import SalarySlider from "./ui/Slider";
+import SalarySlider2 from "./ui/Slider2";
 
 const SearchBar = ({ onSearch }) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [location, setLocation] = useState("");
   const [jobType, setJobType] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const [salaryRange, setSalaryRange] = useState([1, 10000000]);
+
 
   useEffect(() => {
     const delaySearch = setTimeout(() => {
-      onSearch({ searchTitle, location, jobType });
+      onSearch({ searchTitle, location, jobType, salaryRange });
     }, 300);
 
     return () => clearTimeout(delaySearch);
-  }, [searchTitle, location, jobType, onSearch]);
+  }, [searchTitle, location, jobType, salaryRange, onSearch]);
 
   return (
     <div className="px-4 md:px-16 py-2 mt-2 mb-2 text-[#686868] text-sm shadow-md bg-white">
@@ -88,8 +91,8 @@ const SearchBar = ({ onSearch }) => {
         </div>
   
         {/* Salary Slider */}
-        <div className="w-full md:w-auto">
-          <SalarySlider />
+        <div className="w-full md:w-auto md:border-l-2 border-[#EAEAEA] md:px-6">
+          <SalarySlider2 value={salaryRange} onChange={setSalaryRange}/>
         </div>
       </div>
     </div>
