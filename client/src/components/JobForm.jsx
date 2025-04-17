@@ -26,7 +26,7 @@ const CreateJobForm = ({onClose, setJobs}) => {
     e.preventDefault();
     try {
       await api.post("/job", formData);
-      setJobs(prev => [formData, ...prev])
+      setJobs(prev => [{...formData,posted: new Date().toISOString()}, ...prev]) //Store date in the state for effect in mount immediately
       if(onClose) onClose()
       toast.success("Job created successfully!");
     } catch (err) {
@@ -91,6 +91,10 @@ const CreateJobForm = ({onClose, setJobs}) => {
             <option value="Bangalore">Bangalore</option>
             <option value="Hyderabad">Hyderabad</option>
             <option value="Mumbai">Mumbai</option>
+            <option value="Mumbai">Chennai</option>
+            <option value="Mumbai">Gurgaon</option>
+            <option value="Mumbai">Delhi</option>
+            <option value="Mumbai">Pune</option>
           </select>
         </div>
 

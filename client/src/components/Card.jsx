@@ -1,5 +1,6 @@
 import React from "react";
 import { Briefcase, MapPin, Layers, Clock, Users } from "lucide-react";
+import { formatDistanceToNow } from 'date-fns';
 
 const JobCard = ({ job }) => {
   const logoUrl = job.logo || `/google.svg`;
@@ -8,14 +9,14 @@ const JobCard = ({ job }) => {
     <div className="w-[300px] h-[360px] p-4 relative  flex flex-col bg-white rounded-md shadow-md">
       {/* Time tag */}
       <div className="absolute top-3 right-3 bg-[#B0D9FF] text-xs font-medium py-1.5 px-2 rounded-md">
-        24h Ago
+        {formatDistanceToNow(new Date(job.posted), { addSuffix: true })}
       </div>
 
       {/* Logo */}
       <div className="absolute top-9 left-6">
         <img
           src={logoUrl}
-          alt={job.company}
+          alt={job.company || "Company Logo"}
           className="w-16 h-16 rounded-md object-contain bg-white  p-1"
         />
       </div>

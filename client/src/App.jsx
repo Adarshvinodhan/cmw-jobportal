@@ -21,6 +21,7 @@ function App() {
         setLoading(false);
       })
       .catch(err => {
+        toast.error("Failed to fetch jobs")
         console.error("Error fetching jobs:", err);
         setLoading(false);
       });
