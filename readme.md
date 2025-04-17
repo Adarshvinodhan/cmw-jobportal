@@ -1,4 +1,4 @@
-# 🌐 CMW Jobs – Job Portal https://cmw-jobportal.netlify.app
+# 🌐 CMW Jobs – Job Portal https://cmw-jobportal.onrender.com
 
 A full-stack **job portal application** built using **React** (frontend) and **Node.js with Express & MongoDB** (backend).  
 This is a **monorepo** containing both the client and server code for easier development and deployment.
